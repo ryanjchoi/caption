@@ -11,7 +11,7 @@ with open('data.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
 
     # open the text file for writing
-    with open('data.txt', 'w') as textfile:
+    with open('data.srt', 'w') as textfile:
         # write each row from the CSV to the text file
         rowNo = 0
         sectionRowNo = 0
