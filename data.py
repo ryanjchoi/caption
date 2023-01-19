@@ -3,7 +3,7 @@ import csv
 english = 4
 korean = 5
 language = english
-titleNos = [1,28]
+titleNos = [1,28,53,64,84]
 
 # open the CSV file for reading
 with open('data.csv', 'r') as csvfile:
