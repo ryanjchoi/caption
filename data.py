@@ -3,15 +3,16 @@ import csv
 english = 4
 korean = 5
 language = english
-titleNos = [1,28,53,64,84]
+titleNos = [1]
+projectDir = "/Users/choir/Eash Classic/Moonnight Sonata/"
 
 # open the CSV file for reading
-with open('data.csv', 'r') as csvfile:
+with open(projectDir + 'data.csv', 'r') as csvfile:
     # create a CSV reader object
     reader = csv.reader(csvfile)
 
     # open the text file for writing
-    with open('data.srt', 'w') as textfile:
+    with open(projectDir + 'data.srt', 'w') as textfile:
         # write each row from the CSV to the text file
         rowNo = 0
         sectionRowNo = 0
@@ -42,6 +43,7 @@ with open('data.csv', 'r') as csvfile:
 
                     print(column)
                     textfile.write(column)
+                    textfile.write('\n')
                     textfile.write('\n')
                 else:
                     textfile.write('\n')
