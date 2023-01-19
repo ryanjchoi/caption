@@ -3,11 +3,12 @@ import csv
 english = 4
 korean = 5
 language = english
-titleNos = [1]
+title = "INTERESTING FACTS ABOUT"
 projectDir = "/Users/choir/Eash Classic/Moonnight Sonata/"
+downloadDir = "/Users/choir/Downloads/"
 
 # open the CSV file for reading
-with open(projectDir + 'data.csv', 'r') as csvfile:
+with open(downloadDir + 'data.csv', 'r') as csvfile:
     # create a CSV reader object
     reader = csv.reader(csvfile)
 
@@ -35,7 +36,7 @@ with open(projectDir + 'data.csv', 'r') as csvfile:
                     textfile.write(timePeriod)
                     textfile.write('\n')
                 elif (columnNo == language):
-                    if (rowNo in titleNos):
+                    if title in column:
                         column = column.upper()
                         sectionRowNo = 0
                     else:
