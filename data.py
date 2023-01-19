@@ -3,7 +3,7 @@ import csv
 english = 4
 korean = 5
 language = english
-titleNos = [1,27]
+titleNos = [1,28]
 
 # open the CSV file for reading
 with open('data.csv', 'r') as csvfile:
@@ -14,10 +14,12 @@ with open('data.csv', 'r') as csvfile:
     with open('data.txt', 'w') as textfile:
         # write each row from the CSV to the text file
         rowNo = 0
+        sectionRowNo = 0
         for row in reader:
+            rowNo = rowNo + 1
+            sectionRowNo = sectionRowNo + 1
             columnNo = 0;
             timePeriod = ""
-            rowNo = rowNo + 1
             for column in row:
                 columnNo = columnNo + 1
                 if (columnNo == 1):
@@ -34,12 +36,12 @@ with open('data.csv', 'r') as csvfile:
                 elif (columnNo == language):
                     if (rowNo in titleNos):
                         column = column.upper()
+                        sectionRowNo = 0
                     else:
-                        column = str(rowNo-1) + ". " + column
+                        column = str(sectionRowNo) + ". " + column
 
                     print(column)
                     textfile.write(column)
                     textfile.write('\n')
                 else:
-                    skip = True
                     textfile.write('\n')
