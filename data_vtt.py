@@ -26,29 +26,30 @@ with open(downloadDir + 'data.csv', 'r') as csvfile:
             columnNo = 0;
             timePeriod = ""
             for column in row:
+                sentence = ""
                 columnNo = columnNo + 1
                 if (columnNo == 1):
                     print(column)
                     textfile.write(column)
                     textfile.write('\n')
                 elif (columnNo == 2):
-                    timePeriod = column + ",000";
+                    timePeriod = column + ".000";
                 elif (columnNo == 3):
-                    timePeriod = timePeriod + " --> " + column + ",000"
+                    timePeriod = timePeriod + " --> " + column + ".000"
                     print(timePeriod)
                     textfile.write(timePeriod)
                     textfile.write('\n')
                 elif (columnNo == language):
                     if title in column:
-                        column = column.upper()
+                        sentence = sentence + column.upper()
                         sectionRowNo = 0
                     elif subscribeTxt in column:
-                        column = column
+                        sentence = sentence + column
                     else:
-                        column = str(sectionRowNo) + ". " + column
+                        sentence = sentence + str(sectionRowNo) + ". " + column
 
-                    print(column)
-                    textfile.write(column)
+                    print(sentence)
+                    textfile.write(sentence)
                     textfile.write('\n\n')
                 else:
                     textfile.write('\n')
