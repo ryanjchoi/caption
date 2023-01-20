@@ -5,7 +5,7 @@ korean = 5
 language = english
 title = "INTERESTING FACTS ABOUT"
 subscribeTxt = "subscribe to our YouTube channel"
-projectDir = "/Users/choir/Eash Classic/Piano Sonata/"
+projectDir = "/Users/choir/Eash Classic/Bach Cello Suite No.1/"
 downloadDir = "/Users/choir/Downloads/"
 
 # open the CSV file for reading
