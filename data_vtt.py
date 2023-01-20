@@ -4,7 +4,8 @@ english = 4
 korean = 5
 language = english
 title = "INTERESTING FACTS ABOUT"
-projectDir = "/Users/choir/Eash Classic/Moonnight Sonata/"
+subscribeTxt = "subscribe to our YouTube channel"
+projectDir = "/Users/choir/Eash Classic/Piano Sonata/"
 downloadDir = "/Users/choir/Downloads/"
 
 # open the CSV file for reading
@@ -13,7 +14,9 @@ with open(downloadDir + 'data.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
 
     # open the text file for writing
-    with open(projectDir + 'data.srt', 'w') as textfile:
+    with open(projectDir + 'data.vtt', 'w') as textfile:
+        textfile.write('WEBVTT')
+        textfile.write('\n\n')
         # write each row from the CSV to the text file
         rowNo = 0
         sectionRowNo = 0
@@ -39,12 +42,13 @@ with open(downloadDir + 'data.csv', 'r') as csvfile:
                     if title in column:
                         column = column.upper()
                         sectionRowNo = 0
+                    elif subscribeTxt in column:
+                        column = column
                     else:
                         column = str(sectionRowNo) + ". " + column
 
                     print(column)
                     textfile.write(column)
-                    textfile.write('\n')
-                    textfile.write('\n')
+                    textfile.write('\n\n')
                 else:
                     textfile.write('\n')
