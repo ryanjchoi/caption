@@ -3,9 +3,9 @@ import csv
 english = 4
 korean = 5
 language = english
-title = "INTERESTING FACTS ABOUT"
+titles = ["INTERESTING FACTS ABOUT", "story about", "Brief Overview", "Story Behind"]
 subscribeTxt = "subscribe to our YouTube channel"
-projectDir = "/Users/choir/Eash Classic/Bach Cello Suite No.1/"
+projectDir = "/Users/choir/Eash Classic/Nocturne/"
 downloadDir = "/Users/choir/Downloads/"
 
 # open the CSV file for reading
@@ -40,13 +40,14 @@ with open(downloadDir + 'data.csv', 'r') as csvfile:
                     textfile.write(timePeriod)
                     textfile.write('\n')
                 elif (columnNo == language):
-                    if title in column:
+                    if any(title in column for title in titles):
                         sentence = sentence + column.upper()
                         sectionRowNo = 0
                     elif subscribeTxt in column:
                         sentence = sentence + column
                     else:
-                        sentence = sentence + str(sectionRowNo) + ". " + column
+                        # sentence = str(sectionRowNo) + ". " + column
+                        sentence = column
 
                     print(sentence)
                     textfile.write(sentence)
